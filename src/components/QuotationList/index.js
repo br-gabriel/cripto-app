@@ -1,4 +1,4 @@
-import { Filter, ButtonFilter, FilterText } from "./styles";
+import { Filter, ButtonFilter, FilterText, SelectedFilter } from "./styles";
 
 export function QuotationList() {
     return (
