@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet, View } from 'react-native';
 import { CurrentPrice } from './src/components/CurrentPrice/index.js'
 import { HistoryChart } from './src/components/HistoryChart/index.js';
+import { MoreInfo } from './src/components/MoreInfo/index.js';
 import { QuotationList } from './src/components/QuotationList/index.js';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
       <CurrentPrice />
       <HistoryChart />
       <QuotationList />
+      <MoreInfo></MoreInfo>
     </View>
   );
 };
