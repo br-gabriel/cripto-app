@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Routes } from './src/routes';
 import { useFonts, Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/inter'
-import { Text } from 'react-native';
+import { Loading } from './src/components';
 
 export default function App() {
   const [fontsLoader] = useFonts({
@@ -11,7 +11,7 @@ export default function App() {
 
   if(!fontsLoader) {
     return (
-      <Text>Carregando...</Text>
+      <Loading />
     )
   }
 
