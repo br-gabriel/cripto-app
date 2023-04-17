@@ -78,10 +78,15 @@ export const CriptoHighlight = styled.Text`
     color: white;
 `
 
-export const CriptoInfos = styled.Text`
+export const CriptoSymbol = styled.Text`
     font-size: 12px;
     color: white;
     text-transform: uppercase;
+`
+
+export const CriptoPercentage = styled.Text`
+    font-size: 12px;
+    color: ${(props) => (props.value < 0 ? '#FF3030' : '#0CFF6D')};
 `
 
 export const CriptoImage = styled.Image`

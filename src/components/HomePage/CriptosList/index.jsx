@@ -1,5 +1,5 @@
 import { FlatList, View, Image } from "react-native";
-import { CriptoImage, CriptoInfos, CriptoHighlight, CriptoListItem, LeftSideListItem, RightSideListItem, SelectedText, SimpleText, BrlCurrencyBtn, Container, HeaderList, SelectCurrency, Title, UsdCurrencyBtn } from "./styles";
+import { CriptoImage, CriptoSymbol, CriptoPercentage, CriptoHighlight, CriptoListItem, LeftSideListItem, RightSideListItem, SelectedText, SimpleText, BrlCurrencyBtn, Container, HeaderList, SelectCurrency, Title, UsdCurrencyBtn } from "./styles";
 
 export function CriptoList({data, currency, setCurrency}) {  
     return (
@@ -30,13 +30,15 @@ export function CriptoList({data, currency, setCurrency}) {
                             <CriptoImage source={{ uri: item.image }} />
                             <LeftSideListItem>
                                 <CriptoHighlight>{item.name}</CriptoHighlight>
-                                <CriptoInfos>{item.symbol}</CriptoInfos>
+                                <CriptoSymbol>{item.symbol}</CriptoSymbol>
                             </LeftSideListItem>
                         </View>
                         
                         <RightSideListItem>
                             <CriptoHighlight>$ {item.current_price.toFixed(2)}</CriptoHighlight>
-                            <CriptoInfos>{item.price_change_percentage_24h.toFixed(2)}%</CriptoInfos>
+                            <CriptoPercentage value={item.price_change_percentage_24h}>
+                                {item.price_change_percentage_24h.toFixed(2)}%
+                            </CriptoPercentage>
                         </RightSideListItem>
                     </CriptoListItem>
                 )}
