@@ -1,7 +1,10 @@
 import { FlatList, View, Image } from "react-native";
 import { CriptoImage, CriptoSymbol, CriptoPercentage, CriptoHighlight, CriptoListItem, LeftSideListItem, RightSideListItem, SelectedText, SimpleText, BrlCurrencyBtn, Container, HeaderList, SelectCurrency, Title, UsdCurrencyBtn } from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export function CriptoList({data, currency, setCurrency}) {  
+    const { navigate } = useNavigation();
+    
     return (
         <Container>
             <HeaderList>
@@ -25,7 +28,10 @@ export function CriptoList({data, currency, setCurrency}) {
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
                 renderItem={({item}) => (
-                    <CriptoListItem>
+                    <CriptoListItem 
+                        onPress={() => navigate('Details', {item, currency})}
+                    >
+                        
                         <View style={{flexDirection: "row", gap: 18}}>
                             <CriptoImage source={{ uri: item.image }} />
                             <LeftSideListItem>
@@ -40,6 +46,7 @@ export function CriptoList({data, currency, setCurrency}) {
                                 {item.price_change_percentage_24h.toFixed(2)}%
                             </CriptoPercentage>
                         </RightSideListItem>
+
                     </CriptoListItem>
                 )}
             />
