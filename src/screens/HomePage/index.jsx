@@ -8,8 +8,8 @@ import { Container } from './styles';
 import { Loading } from '../../components/index'
 
 export function Home() {
-    const [loading, setLoading] = useState(false)
-    const [currency, setCurrency] = useState('usd')
+    const [loading, setLoading] = useState(true);
+    const [currency, setCurrency] = useState('usd');
     const [data, setData] = useState([]);
 
     async function fetchData() {
