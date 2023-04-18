@@ -55,7 +55,9 @@ export const Title = styled.Text`
 `
 // =================FlatList================== //
 
-export const CriptoListItem = styled.View`
+export const CriptoListItem = styled.TouchableOpacity.attrs(props => ({
+    activeOpacity: 0.7
+}))`
     margin-bottom: 35px;
     flex-direction: row;
     justify-content: space-between;
