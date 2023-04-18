@@ -1,45 +1,31 @@
-import { Filter, ButtonFilter, FilterText, SelectedFilter } from "./styles";
+import { Filter, FilterButton, FilterText  } from "./styles";
 
-export function QuotationList() {
+export function ChartFilter() {
     return (
-        <>
-            <Filter>
-                <ButtonFilter
-                    onPress={() => {}}
-                >
-                    <FilterText>D</FilterText>
-                </ButtonFilter>
+        <Filter>
+            <FilterButton>
+                <FilterText>H</FilterText>
+            </FilterButton>
 
-                <ButtonFilter
-                    onPress={() => {}}
-                >
-                    <FilterText>7D</FilterText>
-                </ButtonFilter>
+            <FilterButton>
+                <FilterText>D</FilterText>
+            </FilterButton>
 
-                <ButtonFilter
-                    onPress={() => {}}
-                >
-                    <FilterText>1M</FilterText>
-                </ButtonFilter>
+            <FilterButton>
+                <FilterText>7D</FilterText>
+            </FilterButton>
 
-                <ButtonFilter
-                    onPress={() => {}}
-                >
-                    <FilterText>6M</FilterText>
-                </ButtonFilter>
+            <FilterButton>
+                <FilterText>M</FilterText>
+            </FilterButton>
 
-                <ButtonFilter
-                    onPress={() => {}}
-                >
-                    <FilterText>1A</FilterText>
-                </ButtonFilter>
+            <FilterButton>
+                <FilterText>1A</FilterText>
+            </FilterButton>
 
-                <ButtonFilter
-                    onPress={() => {}}
-                >
-                    <FilterText>MÁX</FilterText>
-                </ButtonFilter>
-            </Filter>
-        </>
+            <FilterButton>
+                <FilterText>MAX</FilterText>
+            </FilterButton>
+        </Filter>
     )
 }
