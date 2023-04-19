@@ -31,7 +31,7 @@ export function Home() {
     
     if (loading) {
         return (
-            <Loading />
+            <Loading bgColor={'#05043D'} />
         );
     };
 
