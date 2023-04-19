@@ -5,7 +5,7 @@ import { Header } from '../../components/HomePage/AppLogo';
 import { CriptoList } from '../../components/HomePage/CriptosList';
 import { SearchBar } from '../../components/HomePage/SearchBar';
 import { Container } from './styles';
-import { Loading } from '../../components/index'
+import { Loading } from '../../components/Loading';
 
 export function Home() {
     const [loading, setLoading] = useState(true);
