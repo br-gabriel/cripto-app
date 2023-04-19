@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { api } from '../../../services/api';
 import { Alert, Dimensions } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
-import { Loading } from '../../index';
+import { Loading } from '../../Loading';
 import moment from 'moment';
 
 export function HistoryChart() {

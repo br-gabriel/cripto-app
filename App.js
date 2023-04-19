@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Routes } from './src/routes';
 import { useFonts, Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/inter'
-import { Loading } from './src/components';
+import { Loading } from './src/components/Loading';
 
 export default function App() {
   const [fontsLoader] = useFonts({
