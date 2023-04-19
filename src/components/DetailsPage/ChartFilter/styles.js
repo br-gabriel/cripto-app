@@ -6,7 +6,7 @@ export const Filter = styled.View`
     margin-top: 16px;
 `
 export const FilterButton = styled.TouchableOpacity.attrs({
-    activeOpacity: 0.7
+    activeOpacity: 0.5
 })`
     background-color: #272657;
     padding: 4px 12px;
