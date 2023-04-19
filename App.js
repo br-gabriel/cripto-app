@@ -11,7 +11,7 @@ export default function App() {
 
   if(!fontsLoader) {
     return (
-      <Loading />
+      <Loading bgColor={'#05043D'} />
     )
   }
 
