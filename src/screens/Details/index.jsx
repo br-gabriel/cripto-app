@@ -13,11 +13,12 @@ export function Details({ route }) {
                 <Title>{item.name}</Title>
                 <Price>$ {item.current_price.toFixed(2)}</Price>
                 <Percentage value={item.price_change_percentage_24h}>
+                    {item.price_change_percentage_24h > 0 ? '+' : ''}
                     {item.price_change_percentage_24h.toFixed(2)}%
                 </Percentage>
             </Header>
 
-            <HistoryChart />
+            <HistoryChart name={item.name} currency={currency} days={15}/>
             <ChartFilter />
         </Container>
     )

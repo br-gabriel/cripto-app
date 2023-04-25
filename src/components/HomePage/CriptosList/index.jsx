@@ -43,6 +43,7 @@ export function CriptoList({data, currency, setCurrency}) {
                         <RightSideListItem>
                             <CriptoHighlight>$ {item.current_price.toFixed(2)}</CriptoHighlight>
                             <CriptoPercentage value={item.price_change_percentage_24h}>
+                                {item.price_change_percentage_24h > 0 ? '+' : ''}
                                 {item.price_change_percentage_24h.toFixed(2)}%
                             </CriptoPercentage>
                         </RightSideListItem>
