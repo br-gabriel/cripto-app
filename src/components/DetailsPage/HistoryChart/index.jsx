@@ -6,14 +6,14 @@ import { Loading } from '../../Loading';
 import { format } from "date-fns";
 import { ChartContainer } from "./styles";
 
-export function HistoryChart() {
+export function HistoryChart({name, currency, days}) {
     const [loading, setLoading] = useState(false);
     const [chartData, setChartData] = useState([]);
 
     async function fetchData() {
         try {
             setLoading(true)
-            const response = await api.get(`coins/bitcoin/market_chart?vs_currency=usd&days=3&interval=daily`)
+            const response = await api.get(`coins/${name.toLowerCase()}/market_chart?vs_currency=${currency}&days=${days}&interval=daily`)
 
             const formattedData = await response.data.prices.map(price => {
                 const formattedDate = format(new Date(price[0]), 'yyyy-MM-dd');
@@ -56,7 +56,7 @@ export function HistoryChart() {
                     decimalPlaces: 0,
                     color: (opacity = 255) => `rgba(255, 255, 255, ${opacity})`,
                     propsForDots: {
-                        r: '2',
+                        r: '1',
                         strokeWidth: '1',
                         stroke: '#fff'
                     }
