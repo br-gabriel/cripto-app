@@ -10,10 +10,22 @@ export function HistoryChart({name, currency, days}) {
     const [loading, setLoading] = useState(false);
     const [chartData, setChartData] = useState([]);
 
+    function formatName(name) {
+        const lowercaseName = name.toLowerCase();
+
+        if (lowercaseName.includes(' ')) {
+            const splitedName = lowercaseName.split(' ');
+            formattedName = splitedName.join('-');
+            return formattedName;
+        }
+
+        return lowercaseName;
+    }
+
     async function fetchData() {
         try {
             setLoading(true)
-            const response = await api.get(`coins/${name.toLowerCase()}/market_chart?vs_currency=${currency}&days=${days}&interval=daily`)
+            const response = await api.get(`coins/${formatName(name)}/market_chart?vs_currency=${currency}&days=${days}&interval=daily`)
 
             const formattedData = await response.data.prices.map(price => {
                 const formattedDate = format(new Date(price[0]), 'yyyy-MM-dd');
