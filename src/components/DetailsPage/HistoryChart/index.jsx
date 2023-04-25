@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { Alert, Dimensions, Text } from 'react-native';
 import { api } from '../../../services/api';
-import { Alert, Dimensions } from 'react-native';
 import { LineChart } from "react-native-chart-kit";
 import { Loading } from '../../Loading';
-import moment from 'moment';
+import { format } from "date-fns";
+import { ChartContainer } from "./styles";
 
 export function HistoryChart() {
     const [loading, setLoading] = useState(false);
@@ -12,14 +13,14 @@ export function HistoryChart() {
     async function fetchData() {
         try {
             setLoading(true)
-            const response = await api.get(`coins/bitcoin/market_chart?vs_currency=usd&days=30&interval=daily`)
+            const response = await api.get(`coins/bitcoin/market_chart?vs_currency=usd&days=3&interval=daily`)
 
-            const formattedData = response.data.prices.map(price => {
-                const formattedDate = moment(price[0]).format('YYYY-MM-DD');
+            const formattedData = await response.data.prices.map(price => {
+                const formattedDate = format(new Date(price[0]), 'yyyy-MM-dd');
                 return { date: formattedDate, price: price[1] };
             })
 
-            setChartData(formattedData);
+            setChartData(formattedData)
         } catch (error) {
             Alert.alert('Ops', 'Não foi possível carregar o gráfico')
             console.log(error)
@@ -32,22 +33,16 @@ export function HistoryChart() {
         fetchData()
     }, [])
 
-
-    if (loading) {
-        return (
-            <Loading />
-        );
-    };
-
     return (
-        <>
-            <LineChart
+        <ChartContainer>
+            {chartData.length > 0 ? (
+                <LineChart
                 data={{
                     datasets: [{ data: chartData.map((item) => item.price ) }]
                 }}
 
                 width={Dimensions.get('window').width - 32}
-                height={300}
+                height={301}
                 yAxisLabel="$"
                 yAxisSuffix="k"
                 withVerticalLines={false}
@@ -68,11 +63,14 @@ export function HistoryChart() {
                 }}
                 bezier
                 style={{
-                    marginTop: 0,
+                    marginTop: -40,
                     paddingTop: 40,
                     borderRadius: 5,
                 }}
             />
-        </>
+            ) : (
+                <Loading bgColor={'#272657'} />
+            )}
+        </ChartContainer>
     )
 }
