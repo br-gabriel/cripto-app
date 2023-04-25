@@ -1,12 +1,14 @@
 import { Container, Title, Price, Percentage, Header } from "./styles";
 import { HistoryChart } from "../../components/DetailsPage/HistoryChart";
 import { ChartFilter } from "../../components/DetailsPage/ChartFilter"; 
+import { BackButton } from "../../components/BackButton";
 
 export function Details({ route }) {
     const { item, currency } = route.params;
     
     return (
         <Container>
+            <BackButton />
             <Header>
                 <Title>{item.name}</Title>
                 <Price>$ {item.current_price.toFixed(2)}</Price>
