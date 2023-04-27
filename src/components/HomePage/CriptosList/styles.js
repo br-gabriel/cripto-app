@@ -25,8 +25,7 @@ export const UsdCurrencyBtn = styled.TouchableOpacity`
 
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    background-color: #232277;
-    font-weight: bold;
+    background-color: ${(props) => (props.value === "usd" ? '#232277' : '#11104D')};
 `
 
 export const BrlCurrencyBtn = styled.TouchableOpacity`
@@ -36,16 +35,17 @@ export const BrlCurrencyBtn = styled.TouchableOpacity`
     
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    background-color: #11104D;
+    background-color: ${(props) => (props.value === "brl" ? '#232277' : '#11104D')};
 `
 
-export const SelectedText = styled.Text`
+export const UsdText = styled.Text`
     color: white;
-    font-weight: bold;
+    font-weight: ${(props) => (props.value === 'usd' ? 'bold' : 'normal')};
 `
 
-export const SimpleText = styled.Text`
+export const BrlText = styled.Text`
     color: white;
+    font-weight: ${(props) => (props.value === 'brl' ? 'bold' : 'normal')};
 `
 
 export const Title = styled.Text`
