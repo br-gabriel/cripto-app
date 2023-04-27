@@ -1,22 +1,39 @@
-import { FlatList, View, Image } from "react-native";
-import { CriptoImage, CriptoSymbol, CriptoPercentage, CriptoHighlight, CriptoListItem, LeftSideListItem, RightSideListItem, SelectedText, SimpleText, BrlCurrencyBtn, Container, HeaderList, SelectCurrency, Title, UsdCurrencyBtn } from "./styles";
+import { FlatList, View } from "react-native";
+import { CriptoImage, CriptoSymbol, CriptoPercentage, CriptoHighlight, CriptoListItem, LeftSideListItem, RightSideListItem, UsdText, BrlText, BrlCurrencyBtn, Container, HeaderList, SelectCurrency, Title, UsdCurrencyBtn } from "./styles";
 import { useNavigation } from "@react-navigation/native";
 
 export function CriptoList({data, currency, setCurrency}) {  
     const { navigate } = useNavigation();
     
+    function changeCurrency(value) {
+        setCurrency(value);
+    }
+
+    function currencyFormatter(currency, price) {
+        const formatter = new Intl.NumberFormat(currency == 'usd' ? 'en-US' : 'pt-BR', {
+            style: 'currency',
+            currency: currency.toUpperCase(),
+        })
+
+        return formatter.format(price);
+    }
+
     return (
         <Container>
             <HeaderList>
                 <Title>Moedas</Title>
                 
                 <SelectCurrency>
-                    <UsdCurrencyBtn>
-                        <SelectedText>USD</SelectedText>
+                    <UsdCurrencyBtn value={currency} onPress={() => changeCurrency('usd')}>
+                        <UsdText value={currency}>
+                            USD
+                        </UsdText>
                     </UsdCurrencyBtn>
 
-                    <BrlCurrencyBtn>
-                        <SimpleText>BRL</SimpleText>
+                    <BrlCurrencyBtn value={currency} onPress={() => changeCurrency('brl')}>
+                        <BrlText value={currency}>
+                            BRL
+                        </BrlText>
                     </BrlCurrencyBtn>
                 </SelectCurrency>
             </HeaderList>
@@ -41,7 +58,10 @@ export function CriptoList({data, currency, setCurrency}) {
                         </View>
                         
                         <RightSideListItem>
-                            <CriptoHighlight>$ {item.current_price.toFixed(2)}</CriptoHighlight>
+                            <CriptoHighlight>
+                                {currencyFormatter(currency, item.current_price)}
+                            </CriptoHighlight>
+
                             <CriptoPercentage value={item.price_change_percentage_24h}>
                                 {item.price_change_percentage_24h > 0 ? '+' : ''}
                                 {item.price_change_percentage_24h.toFixed(2)}%
