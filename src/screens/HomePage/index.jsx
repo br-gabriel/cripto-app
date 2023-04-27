@@ -28,6 +28,10 @@ export function Home() {
     useEffect(() => {
         fetchData()
     }, [])
+
+    useEffect(() => {
+        fetchData()
+    }, [currency, setCurrency])
     
     if (loading) {
         return (
@@ -39,7 +43,7 @@ export function Home() {
         <Container>
             <Header />
             <SearchBar />
-            <CriptoList data={data} currency={currency} setCurrency={setCurrency}/>
+            <CriptoList data={data} currency={currency} setCurrency={setCurrency} />
         </Container>
     )
 };
