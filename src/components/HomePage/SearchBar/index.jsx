@@ -6,7 +6,7 @@ export function SearchBar() {
         <SearchContainer>
             <SearchField />
             <SearchButton>
-                <Ionicons name="search" size={24} color="white" />
+                <Ionicons name="search" size={20} color="white" />
             </SearchButton>
         </SearchContainer>
     )
