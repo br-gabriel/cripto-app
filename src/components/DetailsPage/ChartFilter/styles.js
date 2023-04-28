@@ -5,7 +5,7 @@ export const Filter = styled.View`
     justify-content: space-between;
     align-items: center;
     margin-top: 16px;
-    width: 90%;
+    width: 100%;
 `
 export const FilterButton = styled.TouchableOpacity.attrs({
     activeOpacity: 0.5
