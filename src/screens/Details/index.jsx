@@ -6,7 +6,9 @@ import { useState } from "react";
 
 export function Details({ route }) {
     const { item, currency } = route.params;
+    
     const [filter, setFilter] = useState(15);
+    const [interval, setInterval] = useState('&interval=daily');
 
     function currencyFormatter(currency, price) {
         const formatter = new Intl.NumberFormat(currency == 'usd' ? 'en-US' : 'pt-BR', {
@@ -31,8 +33,8 @@ export function Details({ route }) {
                 </Percentage>
             </Header>
 
-            <HistoryChart name={item.id} currency={currency} days={filter}/>
-            <ChartFilter filter={filter} setFilter={setFilter}/>
+            <HistoryChart name={item.id} currency={currency} days={filter} interval={interval}/>
+            <ChartFilter setFilter={setFilter} setInterval={setInterval}/>
         </Container>
     )
 };
