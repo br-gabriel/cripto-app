@@ -27,11 +27,7 @@ export function Home() {
 
     useEffect(() => {
         fetchData()
-    }, [])
-
-    useEffect(() => {
-        fetchData()
-    }, [currency, setCurrency])
+    }, [, currency, setCurrency])
     
     if (loading) {
         return (
