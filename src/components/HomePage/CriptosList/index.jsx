@@ -1,21 +1,13 @@
 import { FlatList, View } from "react-native";
 import { CriptoImage, CriptoSymbol, CriptoPercentage, CriptoHighlight, CriptoListItem, LeftSideListItem, RightSideListItem, UsdText, BrlText, BrlCurrencyBtn, Container, HeaderList, SelectCurrency, Title, UsdCurrencyBtn } from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { currencyFormatter } from "../../../utils/currency_formatter";
 
 export function CriptoList({data, currency, setCurrency}) {  
     const { navigate } = useNavigation();
     
     function changeCurrency(value) {
         setCurrency(value);
-    }
-
-    function currencyFormatter(currency, price) {
-        const formatter = new Intl.NumberFormat(currency == 'usd' ? 'en-US' : 'pt-BR', {
-            style: 'currency',
-            currency: currency.toUpperCase(),
-        })
-
-        return formatter.format(price);
     }
 
     return (
