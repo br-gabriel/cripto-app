@@ -1,10 +1,13 @@
 import { LogoContainer, LogoTitle } from "./styles";
-import LogoIcon from "../../../../assets/icon.svg";
+import { Image } from "react-native";
 
 export function Header() {
     return (
         <LogoContainer>     
-            <LogoIcon />     
+            <Image
+                source={require('../../../../assets/icon.png')}
+                style={{width: 46, height: 46}}
+            />    
 
             <LogoTitle>
                 CriptoTracker
