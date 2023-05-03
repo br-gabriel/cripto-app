@@ -28,18 +28,18 @@ export function Home() {
     useEffect(() => {
         fetchData()
     }, [, currency, setCurrency])
-    
-    if (loading) {
-        return (
-            <Loading bgColor={'#05043D'} />
-        );
-    };
 
     return (
         <Container>
-            <Header />
-            <SearchBar />
-            <CriptoList data={data} currency={currency} setCurrency={setCurrency} />
+            {loading ? (
+                <Loading bgColor={'#05043D'} />
+            ) : (
+                <>
+                    <Header />
+                    <SearchBar />
+                    <CriptoList data={data} currency={currency} setCurrency={setCurrency} />
+                </>
+            )}
         </Container>
     )
 };
