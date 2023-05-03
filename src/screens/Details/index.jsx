@@ -17,7 +17,7 @@ export function Details({ route }) {
     const [criptoData, setCriptoData] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    async function fetchData(currency) {
+    async function fetchData() {
         try {
             setLoading(true)
             const response = await api.get(`coins/${item.id}`)
@@ -31,7 +31,7 @@ export function Details({ route }) {
     }
 
     useEffect(() => {
-        fetchData(currency)
+        fetchData()
     }, [])
 
     return (
