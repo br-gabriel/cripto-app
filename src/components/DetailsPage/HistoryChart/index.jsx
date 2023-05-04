@@ -38,7 +38,6 @@ export function HistoryChart({ name, currency, days, interval }) {
     }, [, days, interval])
 
     const handlePointPress = (point) => {
-        console.log(point)
         setSelectedPoint(point)
     }
 
