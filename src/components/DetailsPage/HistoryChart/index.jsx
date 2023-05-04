@@ -6,7 +6,6 @@ import { Loading } from '../../Loading';
 import { format } from "date-fns";
 import { ChartContainer, DialogScreen, DialogText, DialogDate } from "./styles";
 import { currencyFormatter } from "../../../utils/currency_formatter";
-import { dateFormatter } from "../../../utils/date_formatter";
 
 export function HistoryChart({ name, currency, days, interval }) {
     const [loading, setLoading] = useState(true);
