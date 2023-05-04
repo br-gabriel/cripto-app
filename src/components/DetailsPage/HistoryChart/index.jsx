@@ -86,7 +86,7 @@ export function HistoryChart({ name, currency, days, interval }) {
                 {selectedPoint && (
                     <DialogScreen style={{
                             left: selectedPoint.x < 100 ? selectedPoint.x : selectedPoint.x - 115, 
-                            top: selectedPoint.y < 265 ? selectedPoint.y - 300 : selectedPoint.y - 380
+                            top: selectedPoint.y < 260 ? selectedPoint.y - 300 : selectedPoint.y - 380
                         }}>
                         <DialogDate>{selectedPoint.date}</DialogDate>
                         <DialogText>Valor:</DialogText>
