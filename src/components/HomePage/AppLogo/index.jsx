@@ -5,7 +5,7 @@ export function Header() {
     return (
         <LogoContainer>     
             <Image
-                source={require('../../../../assets/icon.png')}
+                source={require('../../../../assets/favicon.png')}
                 style={{width: 46, height: 46}}
             />    
 
