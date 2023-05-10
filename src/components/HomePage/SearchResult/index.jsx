@@ -1,7 +1,10 @@
 import { FlatList, Text, View } from "react-native"
 import { Container, Title, CriptoName, CriptoSymbol, CriptoImage, CriptoListItem } from "./styles"
+import { useNavigation } from "@react-navigation/native"
 
 export function SearchResultsList({result, currency}) {
+    const { navigate } = useNavigation();
+    
     return (
         <Container>
             <Title>Pesquisa</Title>
@@ -12,7 +15,9 @@ export function SearchResultsList({result, currency}) {
                 showsHorizontalScrollIndicator={false}
                 showsVerticalScrollIndicator={false}
                 renderItem={({item}) => (
-                    <CriptoListItem>
+                    <CriptoListItem
+                        onPress={() => navigate('Details', {item, currency})}
+                    >
                         <CriptoImage source={{ uri: item.large }} />
                         <View style={{flexDirection: 'column'}}>
                             <CriptoName>{item.name}</CriptoName>
