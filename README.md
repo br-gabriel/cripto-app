@@ -10,4 +10,4 @@
 
 
 ## Sobre o projeto
-Aplicativo criado para acompanhar as princiapais informações de criptomoedas. Conta com um sistema de listagem das principais moedas, sistema de busca, gráfico do preço, escolha entre R$ e US$ para mostrar o valor dos ativos etc.
+Aplicativo criado para acompanhar as principais informações de criptomoedas. Conta com um sistema de listagem das principais moedas, sistema de busca, gráfico de preço, escolha entre R$ e US$ para mostrar o valor dos ativos etc.
